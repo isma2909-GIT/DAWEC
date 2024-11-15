@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mira la consola</h1>
+    <script>
+        function isEmpty(obj) {
+            for (let key in obj) {
+                return false; 
+            }
+            return true; 
+        }
+
+        
+        let schedule = {};
+        console.log(isEmpty(schedule)); 
+
+        schedule["8:30"] = "Hora de levantarse";
+        console.log(isEmpty(schedule));
+
+    </script>
+</body>
+</html>

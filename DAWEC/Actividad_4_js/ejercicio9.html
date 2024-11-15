@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #boton{ position: fixed; display:none; bottom: 20px;}
+        body{height: 200vh}
+    </style>
+</head>
+<body>
+<h1>Primera linea o cabecera</h1>
+<div id="boton">Boton</div>
+
+    <script>
+
+        const boton = document.getElementById("boton") 
+
+        window.addEventListener("scroll", function() {
+            
+            if (window.scrollY > window.innerHeight) {
+                boton.style.display = "block"; 
+                
+            } else {
+                boton.style.display = "none"; 
+            }
+        });
+        
+    </script>
+</body>
+</html>

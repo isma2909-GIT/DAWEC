@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        div{ width: 100px; height:100px;}
+    </style>
+</head>
+ <body>
+        <div id="c1" style="background: red"></div>
+        <div id="c2" style="background: white"></div>
+        <div id="c3" style="background: blue"></div>
+
+        <Script>
+            const bloqueCentral = document.getElementById("c2");
+
+                // Manejador de entrada al bloque central
+            bloqueCentral.addEventListener("mouseenter", function(event) {
+            const sourceBlock = event.relatedTarget; // Block from which the mouse entered
+
+                if (sourceBlock.id === "c1") {
+                     bloqueCentral.style.background = "red";
+                } else if (sourceBlock.id === "c3") {
+                    bloqueCentral.style.background = "blue";
+                } else {
+                    bloqueCentral.style.background = "white";
+                }
+            });
+        </Script>
+</body>
+</html>

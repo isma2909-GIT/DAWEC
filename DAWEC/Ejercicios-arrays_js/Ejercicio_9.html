@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mira la consola</h1>
+    <script>
+        function servicio(dia) {
+    const turnos = [
+        ["lunes", "Juan"],
+        ["martes", "Marcos"],
+        ["miércoles", "Antonia"],
+        ["jueves", "Pedro"],
+        ["viernes", "Marisa"]
+    ];
+
+    dia = dia.toLowerCase();
+
+    for (let i = 0; i < turnos.length; i++) {
+        if (turnos[i][0] === dia) {
+            return `Este día se encarga ${turnos[i][1]}`;
+        }
+    }
+
+    return "No hay servicio ese día";
+}
+
+
+console.log(servicio("Lunes"));    
+console.log(servicio("miércoles"));  
+console.log(servicio("domingo"));    
+
+    </script>
+</body>
+</html>

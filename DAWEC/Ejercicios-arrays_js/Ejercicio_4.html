@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mira la consola</h1>
+    <script>
+            let lista = [];
+            let countPares = 0;
+            let countImpares = 0;
+            let valor;
+            
+        
+            while (true) {
+
+                valor = prompt("Introduce un número (0 para terminar):");
+            
+                if (isNaN(valor) || valor === null || valor.trim() === "") {
+                    alert("Entrada no válida. Fin de la entrada de datos.");
+                    break;
+                }
+                
+                valor = parseInt(valor);
+                
+                if (valor === 0) break;
+
+                lista[lista.length] = valor;
+            }
+
+        
+            for (let i = 0; i < lista.length; i++) {
+                if (lista[i] % 2 === 0) {
+                    countPares++;
+                } else {
+                    countImpares++;
+                }
+            }
+
+            
+            console.log("Array de entrada:", lista);
+            console.log("Números pares:", countPares);
+            console.log("Números impares:", countImpares);
+    </script>
+</body>
+</html>

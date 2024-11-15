@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display: block; width: 100px; height: 100px;" id="cuadro">
+        Cuadro que cambia al entrar el ratón
+        </div>
+
+        <Script>
+             window.onload = function() {
+                cuadro.addEventListener("mouseenter", function() {
+                cuadro.style.backgroundColor = "red";
+            });
+            cuadro.addEventListener("mouseleave", function() {
+                cuadro.style.backgroundColor = "white";
+            });
+             }
+             
+        </Script>
+</body>
+</html>

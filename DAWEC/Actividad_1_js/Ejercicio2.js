@@ -1,5 +1,5 @@
 // 2.1
-let number = -5; // Cambia el número según prefieras
+let number = -5; 
 if (number > 0) {
     console.log("El número es positivo.");
 } else if (number < 0) {
@@ -8,8 +8,8 @@ if (number > 0) {
     console.log("El número es cero.");
 }
 
-// 2.2
-let personAge = 20; // Cambia la edad según prefieras
+
+let personAge = 20; 
 if (personAge < 18) {
     console.log("Menor de edad");
 } else if (personAge < 65) {

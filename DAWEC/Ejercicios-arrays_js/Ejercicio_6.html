@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mira la consola</h1>
+    <script>
+        let lista = ["a","y","p","w","x","b"];
+        let boolean = false
+        opcion = prompt("Escribe una palabra para ver si esta en la lista")
+
+        for(let i = 0;i < lista.length; i++ ){
+            if(lista[i] === opcion){
+                boolean = true;
+                break;
+            }
+        }
+        if(boolean == true){
+            alert("la plabra "+opcion+" esta en la lista "+lista)
+
+        }else{
+            alert("la plabra "+opcion+" no esta en la lista "+lista)
+
+        }
+        
+
+        
+    </script>
+</body>
+</html>

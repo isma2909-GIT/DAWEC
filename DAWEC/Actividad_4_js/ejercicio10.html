@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label>No se aceptan dígitos</label>
+        <input type="text" id="letras">
+        </form>
+
+       <script>
+
+    
+        const inputTexto = document.getElementById("letras")
+        
+        inputTexto.addEventListener("keydown", function(event) {
+           
+            if (event.key >= '0' && event.key <= '9') {
+                alert("no se aceptan numeros");
+            }
+        });
+
+       </script>
+</body>
+</html>

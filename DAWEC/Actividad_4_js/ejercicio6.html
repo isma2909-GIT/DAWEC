@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Coordenada X</label>
+<input id="cX"> </div>
+<label>Coordenada Y</label>
+<input id="cY"> </div>
+
+<script>
+     document.addEventListener("mousemove", function(event) {
+            const x = event.screenX;
+            const y = event.screenY;
+
+            document.getElementById("cX").value = x;
+            document.getElementById("cY").value = y;
+        });
+</script>
+</body>
+</html>
