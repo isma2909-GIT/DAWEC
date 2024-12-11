@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Completo</title>
+    <style>
+        .error {
+            color: red;
+        }
+        fieldset {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        legend {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Formulario con valores por defecto y marcado de campos obligatorios -->
+    <form id="formulario" action="javascript:validacion()">
+        <fieldset>
+            <legend>Datos personales</legend>
+            <!-- Campo de texto para el nombre con validación y valor por defecto -->
+            <label for="nombre">Nombre*:</label>
+            <input type="text" id="nombre" name="nombre"  required>
+            
+            <!-- Campo para primer apellido, obligatorio con validación -->
+            <label for="primer_apellido">Primer apellido*:</label>
+            <input type="text" id="primer_apellido" name="primer_apellido"  required>
+            
+            <!-- Campo para segundo apellido, opcional -->
+            <label for="segundo_apellido">Segundo apellido:</label>
+            <input type="text" id="segundo_apellido" name="segundo_apellido" ><br><br>
+
+            <!-- Campo de dirección opcional -->
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" placeholder="calle o plaza , numero y piso"><br><br>
+
+            <!-- Campo de teléfono con validación de formato -->
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono"  placeholder="123 33 33 33"><br><br>
+
+            <!-- Campo de correo obligatorio con validación -->
+            <label for="email">E-mail*:</label>
+            <input type="email" id="email" name="email"  placeholder="ejemplo@ejemplo.com" required><br><br>
+
+            <!-- Campo de contraseña obligatorio -->
+            <label for="contrasena">Contraseña*:</label>
+            <input type="password" id="contrasena" name="contrasena" required><br><br>
+
+            <!-- Selección de género, obligatorio -->
+            <label>Sexo:</label>
+            <input type="radio" id="sexo_masculino" name="sexo" value="masculino"  >
+            <label for="sexo_masculino">Varón</label>
+            <input type="radio" id="sexo_femenino" name="sexo" value="femenino">
+            <label for="sexo_femenino">Mujer</label><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Nivel de estudios e intereses</legend>
+            <!-- Selección del nivel de estudios con opción por defecto marcada -->
+            <label>Nivel de estudios:</label><br>
+            <input type="radio" id="certificado_escolar" name="nivel_estudios" value="certificado_escolar"  checked>
+            <label for="certificado_escolar">Certificado escolar</label><br>
+            <input type="radio" id="graduado_eso" name="nivel_estudios" value="graduado_eso" >
+            <label for="graduado_eso">Graduado en E.S.O.</label><br>
+            <input type="radio" id="fp" name="nivel_estudios" value="fp">
+            <label for="fp">Bachiller o Formación Profesional</label><br>
+            <input type="radio" id="universitario" name="nivel_estudios" value="universitario">
+            <label for="universitario">Diplomado o Licenciado</label><br><br>
+
+            <!-- Opciones de intereses, opcional -->
+            <label>Recibir artículos sobre los siguientes temas:</label><br>
+            <input type="checkbox" id="musica" name="intereses" value="musica">
+            <label for="musica">Música</label><br>
+            <input type="checkbox" id="deportes" name="intereses" value="deportes" >
+            <label for="deportes">Deportes</label><br>
+            <input type="checkbox" id="cine" name="intereses" value="cine">
+            <label for="cine">Cine</label><br>
+            <input type="checkbox" id="ciencia" name="intereses" value="ciencia">
+            <label for="ciencia">Ciencia</label><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Datos sobre la revista</legend>
+            <!-- Selección de frecuencia con opción por defecto marcada -->
+            <label>Frecuencia con la que recibir la revista:</label><br>
+            <select id="frecuencia" name="frecuencia" required>
+                <option value="semanal">Semanal</option>
+                <option value="mensual" selected>Mensual</option>
+                <option value="anual">Anual</option>
+            </select><br><br>
+
+            <!-- Campo de comentarios opcional -->
+            <label for="comentarios">Comentarios:</label><br>
+            <textarea id="comentarios" name="comentarios" placeholder="Escribe tu comentario..."></textarea><br><br>
+
+            <!-- Campo de archivo opcional -->
+            <label for="archivo">Adjuntar archivo:</label>
+            <input type="file" id="archivo" name="archivo"><br><br>
+        </fieldset>
+
+        <!-- Botones de reiniciar y enviar -->
+         <fieldset>
+            <legend>Comenzar de nuevo</legend>
+            <p>Borrar todo e formulario y volver a empezar de nuevo</p>
+            <button type="reset">Borrar Todo</button>
+         </fieldset>
+      
+        <fieldset>
+            <legend>Enviar</legend>
+            <p>Enviar correo electronico: Al pulsar el boton  se abrira la pagina de envio de correo  en esa pagina pulsa enviar</p>
+            <button type="submit">Enviar por correo</button>  
+        </fieldset>
+        
+    </form>
+
+    <script>
+        // Función de validación asociada al botón "Enviar por correo"
+        function validacion() {
+            const formulario = document.getElementById('formulario');
+            let errores = [];
+
+            // Lista de campos obligatorios para validar
+            const camposObligatorios = [
+                { id: 'nombre', mensaje: "El campo 'Nombre' es obligatorio." },
+                { id: 'primer_apellido', mensaje: "El campo 'Primer apellido' es obligatorio." },
+                { id: 'email', mensaje: "El campo 'E-mail' es obligatorio y debe ser válido." },
+                { id: 'contrasena', mensaje: "El campo 'Contraseña' es obligatorio." }
+            ];
+
+            // Validación de cada campo obligatorio
+            camposObligatorios.forEach(campo => {
+                const elemento = document.getElementById(campo.id);
+                if (!elemento.value.trim()) {
+                    errores.push(campo.mensaje);
+                }
+            });
+
+            // Validar formato del teléfono
+            const telefono = document.getElementById('telefono');
+            const telefonoRegex = /^[0-9]{9}$/;
+            if (telefono.value && !telefonoRegex.test(telefono.value)) {
+                errores.push("El campo 'Teléfono' debe contener 9 dígitos.");
+            }
+
+            // Validar selección de género
+            const sexo = document.querySelector('input[name="sexo"]:checked');
+            if (!sexo) {
+                errores.push("Debe seleccionar un sexo.");
+            }
+
+            // Validar selección de nivel de estudios
+            const nivelEstudios = document.querySelector('input[name="nivel_estudios"]:checked');
+            if (!nivelEstudios) {
+                errores.push("Debe seleccionar un nivel de estudios.");
+            }
+
+            // Validar formato del correo electrónico
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.value && !emailRegex.test(email.value)) {
+                errores.push("El campo 'E-mail' debe tener un formato válido.");
+            }
+
+            // Mostrar errores o confirmar envío
+            if (errores.length > 0) {
+                alert("Errores:\n" + errores.join("\n"));
+                const primerError = document.getElementById(camposObligatorios.find(c => errores.includes(c.mensaje))?.id);
+                if (primerError) primerError.focus();
+            } else {
+                alert("Datos enviados correctamente.");
+                formulario.reset();
+            }
+        }
+    </script>
+</body>
+</html>
