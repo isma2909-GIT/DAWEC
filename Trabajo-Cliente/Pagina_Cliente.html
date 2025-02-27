@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metaetiquetas esenciales para la codificación de caracteres y la adaptabilidad en dispositivos móviles -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title> <!-- Título de la página, visible en la pestaña del navegador -->
+    
+    <!-- Hoja de estilo personalizada para ajustes adicionales -->
+    <link rel="stylesheet" href="Style.css">
+    
+    <!-- Enlace al archivo CSS de Bootstrap para una estructura de diseño adaptable (responsiva) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light"> <!-- Color de fondo general del cuerpo de la página -->
+
+    <!-- Header: Título centralizado en la parte superior de la página -->
+    <header class="bg-dark text-white text-center py-3">
+        <h1>Bienvenido a tu To-Do List</h1> <!-- Título de bienvenida -->
+    </header>
+
+    <!-- Navbar: Barra de navegación para facilitar el acceso a secciones o funcionalidades adicionales -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">To-Do List</a> <!-- Nombre de la aplicación que sirve como enlace (aunque aquí no redirige) -->
+            <button id="toggleMode" class="btn btn-outline-light">Modo Oscuro</button> <!-- Botón para cambiar el tema entre claro y oscuro -->
+        </div>
+    </nav>
+
+    <!-- Contenedor principal para el formulario de agregar tareas y mostrar la lista -->
+    <div class="container mt-5">
+        <!-- Card: Contenedor estilizado para mejorar la presentación del formulario de agregar tarea -->
+        <div class="card shadow-lg p-4 rounded-3" style="border: 1px solid #ddd;">
+            <h2 class="text-center mb-4" style="font-size: 24px;">Agregar una nueva tarea</h2>
+
+            <!-- Formulario para ingresar las tareas -->
+            <div class="d-flex flex-column">
+                <input type="text" id="taskInput" class="form-control mb-3 border-light shadow-sm" placeholder="Escribe una tarea..."> <!-- Campo de texto para escribir la tarea -->
+                
+                <div class="d-flex align-items-center">
+                    <!-- Select para elegir la categoría (tag) de la tarea -->
+                    <select id="taskTag" class="form-select me-3 border-light shadow-sm">
+                        <option value="important">Importante</option>
+                        <option value="secondary">Secundaria</option>
+                        <option value="urgent">Urgente</option>
+                        <option value="optional">Opcional</option>
+                    </select>
+
+                    <!-- Botón para agregar la tarea a la lista -->
+                    <button class="btn btn-outline-secondary" id="addTask">Agregar tarea</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtros: Sección de botones que permiten filtrar las tareas por estado o categoría -->
+        <div class="mb-3 text-center mt-4">
+            <button class="btn btn-outline-dark filter-btn" data-filter="all">Todas</button> <!-- Filtro para mostrar todas las tareas sin filtrar -->
+            <button class="btn btn-outline-dark filter-btn" data-filter="pending">Por hacer</button> <!-- Filtro para mostrar solo las tareas pendientes -->
+            <button class="btn btn-outline-dark filter-btn" data-filter="important">Importantes</button> <!-- Filtro para mostrar solo las tareas importantes -->
+            <button class="btn btn-outline-dark filter-btn" data-filter="secondary">Secundarias</button> <!-- Filtro para mostrar solo las tareas secundarias -->
+            <button class="btn btn-outline-dark filter-btn" data-filter="urgent">Urgentes</button> <!-- Filtro para mostrar solo las tareas urgentes -->
+            <button class="btn btn-outline-dark filter-btn" data-filter="completed">Hechas</button> <!-- Filtro para mostrar solo las tareas completadas -->
+        </div>
+
+        <!-- Lista de tareas: Aquí es donde las tareas serán añadidas dinámicamente -->
+        <ul id="taskList" class="list-group"></ul> <!-- Lista de tareas que se actualizará mediante JavaScript -->
+
+        <!-- Botón para borrar todas las tareas almacenadas -->
+        <div class="text-center mt-3">
+            <button class="btn btn-outline-dark" id="clearTasks">Borrar todas las tareas</button> <!-- Al presionar este botón, se eliminarán todas las tareas almacenadas -->
+        </div>
+    </div>
+
+    <!-- Footer: Pie de página con derechos reservados -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>&copy; 2025 To-Do List. Todos los derechos reservados.</p> <!-- Información de derechos de autor -->
+    </footer>
+
+    <!-- Scripts necesarios para las funcionalidades -->
+    <!-- Script para permitir la reorganización de las tareas mediante arrastrar y soltar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    
+    <!-- Script de Bootstrap que permite la funcionalidad de los componentes (como los botones y el cambio de tema) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Enlace al archivo JavaScript donde se gestionan todas las interacciones y funciones -->
+    <script src="script.js"></script>
+</body> 
+</html>
